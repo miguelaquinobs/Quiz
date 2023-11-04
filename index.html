@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>Quiz Frontend</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: rgb(48, 201, 155);
+
+
+        }
+
+
+
+        h1 {
+            text-align: center;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 60px;
+
+        }
+
+        .opicoes label {
+            display: table;
+
+        }
+
+        .result {
+            text-align: center;
+            font-size: 150px;
+        }
+
+        .rodape input {
+
+            background-color: #f2f2f2;
+            padding: 3px;
+            border: 1px solid #ccc;
+            color: #333;
+        }
+
+        .rodape input[type=submit] {
+            border-radius: 5px;
+            border: 1px solid #ffffff;
+            background-color: rgb(12, 12, 12);
+            color: #fff;
+            height: 35px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="quiz-container">
+        <h1>Quiz Start</h1>
+        <form id="quiz-form">
+            <fieldset>
+                <div class="questao">1. Qual tag finalizamos o codigo Html?</div>
+                <div class="opicoes">
+                    <label><input type="radio" name="questao1" value="a">a) Html</label>
+                    <label><input type="radio" name="questao1" value="b">b) body</label>
+                    <label><input type="radio" name="questao1" value="c">c) head</label>
+                    <br>
+            </fieldset>
+    </div>
+    <fieldset>
+        <div class="questao">2. Como iniciamos um codigo Html?</div>
+        <div class="opicoes">
+            <label><input type="radio" name="questao2" value="a">a) !DOCTYPE html</label>
+            <label><input type="radio" name="questao2" value="b">b) !Html</label>
+            <label><input type="radio" name="questao2" value="c">c) !Inicio</label>
+            <br>
+    </fieldset>
+    </div>
+    <fieldset>
+        <div class="questao">3. Como salvar o codigo CSS?</div>
+        <div class="opicoes">
+            <label><input type="radio" name="questao3" value="a">a) .html</label>
+            <label><input type="radio" name="questao3" value="b">b) .css</label>
+            <label><input type="radio" name="questao3" value="c">c) .js</label>
+            <br>
+    </fieldset>
+
+    </div>
+    <fieldset>
+        <div class="questao">4.Para que usamos o CSS?</div>
+        <div class="opicoes">
+            <label><input type="radio" name="questao4" value="a">a) estruturar</label>
+            <label><input type="radio" name="questao4" value="b">b) guardar dados</label>
+            <label><input type="radio" name="questao4" value="c">c) estilizar</label>
+            <br>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="questao">5. Como declaramos uma variavel no JavaScript?</div>
+        <div class="opicoes">
+            <label><input type="radio" name="questao5" value="a">a) funcion;</label>
+            <label><input type="radio" name="questao5" value="b">b) if</label>
+            <label><input type="radio" name="questao5" value="c">c) var </label>
+            <br>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="questao">6.JavaScript é a mesma coisa que Java?</div>
+        <div class="opicoes">
+            <label><input type="radio" name="questao6" value="a">a) Sim;</label>
+            <label><input type="radio" name="questao6" value="b">b) Não</label>
+            <label><input type="radio" name="questao6" value="c">c) Não sei </label>
+            <br>
+        </div>
+    </fieldset>
+    <div class="rodape">
+        <input type="submit" value="RESULTADO" />
+    </div>
+
+
+
+    </form>
+
+    <div class="result" id="quiz-result"></div>
+    </div>
+
+    <script>
+        const quizForm = document.getElementById('quiz-form');
+        const quizResult = document.getElementById('quiz-result');
+
+        quizForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const respostas = {
+                questao1: quizForm.questao1.value,
+                questao2: quizForm.questao2.value,
+                questao3: quizForm.questao3.value,
+                questao4: quizForm.questao4.value,
+                questao5: quizForm.questao5.value,
+                questao6: quizForm.questao6.value,
+            };
+
+            let pontuacao = 0;
+
+            if (respostas.questao1 === 'a') pontuacao++;
+            if (respostas.questao2 === 'a') pontuacao++;
+            if (respostas.questao3 === 'b') pontuacao++;
+            if (respostas.questao4 === 'c') pontuacao++;
+            if (respostas.questao5 === 'c') pontuacao++;
+            if (respostas.questao6 === 'b') pontuacao++;
+
+            quizResult.textContent = `Sua pontuação é : ${pontuacao}`;
+        });
+    </script>
+</body>
